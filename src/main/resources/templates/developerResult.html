@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developer Result</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      width: 400px;
+      max-width: 90%;
+      text-align: center;
+      padding: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid rgba(255, 255, 255, 0.5);
+      margin-top: 20px;
+    }
+
+    .card h2 {
+      font-size: 26px;
+      margin: 15px 0;
+      color: #fff;
+    }
+
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 20px 10px;
+    }
+
+    .stat {
+      flex: 1 1 45%;
+      margin: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      padding: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: background 0.3s;
+    }
+
+    .stat:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .stat h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .stat p {
+      font-size: 22px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .footer {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 14px;
+      color: #ddd;
+      margin-top: 20px;
+    }
+
+    .back-button {
+      display: inline-block;
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      color: #667eea;
+      background: #fff;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .back-button:hover {
+      background: #667eea;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+<a onclick="window.history.back()" class="back-button">⬅ Back</a>
+<div class="card" th:each="developer:${developers}">
+  <img th:src="@{${developer.photoUrl}}" alt="Developer Photo">
+  <h2 th:text="${developer.name}">Developer Name</h2>
+  <div class="stats">
+    <div class="stat">
+      <h3>Total Tasks</h3>
+      <p th:text="${developer.totalTasks}">0</p>
+    </div>
+    <div class="stat">
+      <h3>In Progress</h3>
+      <p th:text="${developer.progresTasks}">0</p>
+    </div>
+    <div class="stat">
+      <h3>Completed</h3>
+      <p th:text="${developer.compTasks}">0</p>
+    </div>
+    <div class="stat">
+      <h3>Expired</h3>
+      <p th:text="${developer.expiredTasks}">0</p>
+    </div>
+  </div>
+  <div class="footer">
+    &copy; 2025 Developer Dashboard
+  </div>
+</div>
+</body>
+</html>

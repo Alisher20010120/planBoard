@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Column</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .form-container {
+      border: 2px solid #28a745;
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 400px;
+      margin: 50px auto;
+    }
+    .btn-custom {
+      background-color: #6f42c1;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+<div class="form-container">
+  <h2 class="text-center">Add Column</h2>
+  <form action="/cabinet">
+    <div class="form-group">
+      <label for="columnName">Column Name</label>
+      <input type="text" class="form-control" name="columnName" id="columnName" placeholder="Enter column name" required>
+    </div>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input"  name="isCompleted" id="isCompleted">
+      <label class="form-check-label" for="isCompleted">isCompleted</label>
+    </div>
+    <button type="submit" class="btn btn-custom btn-block">Add</button>
+  </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
